@@ -1,0 +1,45 @@
+﻿@model CvMvc.Models.EntityFramework.Me
+
+@{
+    ViewBag.Title = "İletişim Bilgileri";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body row" style="margin-right: 0px;">
+        <div class="col-5 text-center d-flex align-items-center justify-content-center">
+            <div class="">
+                <img src="@Model.Profile" style="width: 200px; height: auto; border-radius: 50%; margin-bottom: 10px;" />
+                <h2><strong>@Model.FullName</strong></h2>
+                <p class="lead mb-5">
+                    @Model.Address<br>
+                    Telefon: @Model.Phone
+                </p>
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="form-group">
+                <label for="inputName">Ad Soyad</label>
+                @Html.TextBoxFor(x => x.FullName, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">E-Mail</label>
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "email" })
+            </div>
+            <div class="form-group">
+                <label for="inputMessage">Yaş</label>
+                @Html.TextBoxFor(x => x.Age, new { @class = "form-control", type = "number" })
+            </div>
+            <div class="form-group">
+                <label for="inputSubject">Profil Uzantı</label>
+                @Html.TextBoxFor(x => x.Profile, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.Profile, new { @type = "file" })
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Güncelle">
+            </div>
+        </div>
+    </div>
+</div>

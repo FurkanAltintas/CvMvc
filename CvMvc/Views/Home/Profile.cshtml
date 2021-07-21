@@ -1,0 +1,39 @@
+﻿@model CvMvc.Models.ProfileSocial
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="profile-page">
+    <div class="wrapper">
+        <div class="page-header page-header-small" filter-color="green">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('@Model.detail.Image')"></div>
+            <div class="container">
+                <div class="content-center">
+                    <div class="cc-profile-image"><a href="#"><img src="@Model.me.Profile" alt="Image" /></a></div>
+                    <div class="h2 title">@Model.me.FullName</div>
+                    <p class="category text-white">
+                        @foreach (var item in Model.appellation)
+                        {
+                            @item.Name
+                        }
+                    </p>
+                    <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Beni işe al</a>
+                    <a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Cv Yükle</a>
+                </div>
+            </div>
+            <div class="section">
+                <div class="container">
+                    <div class="button-container">
+                        @foreach (var item in Model.social)
+                        {
+                            <a class="btn btn-default btn-round btn-lg btn-icon" href="@item.Link" rel="tooltip" title="Beni @item.Name'ta takip et" target="_blank" style="background-color: @item.Color;"><i class="@item.Icon"></i></a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

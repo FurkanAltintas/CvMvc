@@ -1,0 +1,124 @@
+﻿@using CvMvc.Models.EntityFramework
+@model List<Portfolio>
+
+@{
+    ViewBag.Title = "Projeler";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 1;
+}
+
+<div class="container-fluid">
+
+    <!-- Timelime example  -->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- The time line -->
+            <div class="timeline">
+                <!-- timeline time label -->
+                @foreach (var item in Model)
+                {
+                    i++;
+                    if (i == 2)
+                    {
+                        <div class="time-label">
+                            <span class="bg-red">@item.History.Value.ToString("dd MMM. yyyy")</span>
+                        </div>
+                        <br />
+
+                        <div>
+                            <i class="fas fa-envelope bg-blue"></i>
+                            <div class="timeline-item">
+                                <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                                <h3 class="timeline-header"><a href="#">@item.Explanation</a> @item.Name</h3>
+
+                                <div class="timeline-body">
+                                    @item.Explanation
+                                </div>
+                                <div class="timeline-footer">
+                                    <a class="btn btn-primary btn-sm">Devamını Oku</a>
+                                    <a class="btn btn-danger btn-sm">Sil</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    if (i == 3)
+                    {
+                        <div>
+                            <i class="fas fa-user bg-green"></i>
+                            <div class="timeline-item">
+                                <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
+                                <h3 class="timeline-header no-border"><a href="#">@item.Explanation</a> @item.Name</h3>
+                            </div>
+                        </div>
+                    }
+                    if (i == 4)
+                    {
+                        <div>
+                            <i class="fas fa-comments bg-yellow"></i>
+                            <div class="timeline-item">
+                                <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
+                                <h3 class="timeline-header"><a href="#">@item.Explanation</a> @item.Name</h3>
+                                <div class="timeline-body">
+                                    @item.Explanation
+                                </div>
+                                <div class="timeline-footer">
+                                    <a class="btn btn-warning btn-sm">Görüntüle</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    if (i == 5)
+                    {
+                        <div class="time-label">
+                            <span class="bg-green">@item.History.Value.ToString("dd MMM. yyyy")</span>
+                        </div>
+
+                        <div>
+                            <i class="fa fa-camera bg-purple"></i>
+                            <div class="timeline-item">
+                                <span class="time"><i class="fas fa-clock"></i> 2 days ago</span>
+                                <h3 class="timeline-header"><a href="#">@item.Explanation</a> @item.Name</h3>
+                                <div class="timeline-body">
+                                    <img src="@item.Image" alt="..." style="width: 485px; height: auto;">
+                                    <img src="@item.Image" alt="..." style="width: 485px; height: auto;">
+                                    <img src="@item.Image" alt="..." style="width: 485px; height: auto;">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    if (i == 6)
+                    {
+                        <div>
+                            <i class="fas fa-video bg-maroon"></i>
+
+                            <div class="timeline-item">
+                                <span class="time"><i class="fas fa-clock"></i> 5 days ago</span>
+
+                                <h3 class="timeline-header"><a href="#">@item.Explanation</a> @item.Name</h3>
+
+                                <div class="timeline-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <img class="embed-responsive-item" src="@item.Image" />
+                                    </div>
+                                </div>
+                                <div class="timeline-footer">
+                                    <a href="#" class="btn btn-sm bg-maroon">Projeye Git</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-clock bg-gray"></i>
+                        </div>
+                        <br />
+                        <br />
+                        i = 1;
+                    }
+                }
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+</div>
+

@@ -1,0 +1,67 @@
+﻿@using CvMvc.Models.EntityFramework
+@model List<Experience>
+
+@{
+    ViewBag.Title = "Deneyim Listem";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 0;
+}
+
+@if (Model.Count() == 0)
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        Deneyimi bulunmamaktadır.
+    </div>
+}
+else
+{
+    <div class="col-12" id="accordion">
+
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            @Model.Count() Tane deneyimim bulunmaktadır.
+        </div>
+
+        @foreach (var item in Model)
+        {
+            i++;
+            if (i == 1)
+            {
+                <div class="card card-primary card-outline">
+                    <a class="d-block w-100" data-toggle="collapse" href="#collapse@(item.Id)">
+                        <div class="card-header">
+                            <h4 class="card-title w-100">
+                                @i. @item.CompanyName - @item.SoftwareLanguage (@item.History)
+                            </h4>
+                        </div>
+                    </a>
+                    <div id="collapse@(item.Id)" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            @item.Explanation
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card card-primary card-outline">
+                    <a class="d-block w-100" data-toggle="collapse" href="#collapse@(item.Id)">
+                        <div class="card-header">
+                            <h4 class="card-title w-100">
+                                @i. @item.CompanyName - @item.SoftwareLanguage (@item.History)
+                            </h4>
+                        </div>
+                    </a>
+                    <div id="collapse@(item.Id)" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            @item.Explanation
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }
+    </div>
+}

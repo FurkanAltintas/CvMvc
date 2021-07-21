@@ -1,0 +1,33 @@
+﻿@model CvMvc.Models.EntityFramework.About
+
+@{
+    ViewBag.Title = "Hakkımda";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("About", "Admin", FormMethod.Post))
+{
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Hakkımda</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body" style="display: block;">
+            @Html.TextBoxFor(x => x.Hood, new { @class = "form-control" })
+        </div>
+        <div class="card-body" style="display: block;">
+            @Html.TextAreaFor(x => x.Explanation, 5, 1, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-dark">Güncelle</button>
+}
+

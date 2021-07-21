@@ -1,0 +1,28 @@
+﻿@using CvMvc.Models.EntityFramework
+@model List<Education> 
+
+<div id="education" class="section">
+    <div class="container cc-education">
+        <div class="h4 text-center mb-4 title">Eğitimlerim</div>
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                        <div class="card-body cc-education-header">
+                            <p>@item.History</p>
+                            <div class="h5">@item.Type</div>
+                        </div>
+                    </div>
+                    <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                        <div class="card-body">
+                            <div class="h5">@item.Name</div>
+                            <p class="category">@item.Detail</p>
+                            <p>@item.Explanation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

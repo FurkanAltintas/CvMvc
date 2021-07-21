@@ -1,0 +1,89 @@
+﻿@using CvMvc.Models.EntityFramework
+@model List<Contact>
+
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Message", "Admin", FormMethod.Post))
+{
+    <br />
+    <div class="input-group input-group-sm">
+        <input type="text" class="form-control" name="txtAra" id="txtAra" placeholder="Kullanıcı Adı Giriniz">
+        <span class="input-group-append">
+            <button type="submit" name="btnAra" id="btnAra" value="Ara" class="btn btn-danger btn-flat" style="margin-left: 10px;">Ara</button>
+        </span>
+    </div>
+    <br />
+}
+
+@using (Html.BeginForm("Message", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" name="txtList" id="txtList" class="custom-control-input">
+            <label class="custom-control-label" for="txtList">Hepsini Getir</label>
+            <button type="submit" name="btnList" id="btnList" value="Ara" class="btn btn-danger btn-flat" style="margin-left: 10px;">Ara</button>
+        </div>
+    </div>
+
+    <br />
+}
+
+@if (Model == null)
+{
+
+}
+else
+{
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            @if (Model.Count() == 0)
+            {
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    Aradığınız kelimeye göre mesaj bulunmamaktadır.
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                            <div class="card bg-light d-flex flex-fill">
+                                <div class="card-header text-muted border-bottom-0">
+                                    Konu: @item.Subject
+                                    Tarih: (@item.History.Value.ToString("dd MMM. yyyy") @item.Time.Value.Hours:@item.Time.Value.Minutes)
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2 class="lead"><b>@item.FullName</b></h2>
+                                            <p class="text-muted text-sm"><b>Mesaj: </b> @item.Message </p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> Email: @item.Email</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-right">
+                                        <a href="mailto:@item.Email" class="btn btn-sm bg-teal">
+                                            <i class="fas fa-comments"></i>
+                                        </a>
+                                        <a href="/Admin/MessageProfile/@item.Email" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-user"></i> Profili Görüntüle
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
+

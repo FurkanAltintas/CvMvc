@@ -1,0 +1,140 @@
+﻿@model CvMvc.Models.NoteDetails
+
+@{
+    ViewBag.Title = "Notlar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int i = 0;
+}
+
+<div class="col-12" id="accordion">
+    @if (Model.note.Count() != 0)
+    {
+        foreach (var item in Model.note)
+        {
+            i++;
+
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h4 class="card-title w-100">
+                        <a class="d-block w-100" data-toggle="collapse" href="#collapse@(item.Id)">
+                            @i. @item.Message
+                        </a>
+                        <a href="/Admin/NoteEdit/@item.Id" class="btn btn-primary" style="float: right;"><i class="fas fa-eye"></i></a>
+                    </h4>
+                </div>
+                @if (Model.noteDetail.Where(x => x.NoteId == item.Id).Count() != 0)
+                {
+                    foreach (var item2 in Model.noteDetail.Where(x => x.NoteId == item.Id))
+                    {
+                        if (i == 1)
+                        {
+                            <div id="collapse@(item.Id)" class="collapse show" data-parent="#accordion">
+                                <div class="card-body">
+                                    @item2.Detail (@item2.History.Value.ToString("dd.MM.yyyy HH:mm"))
+                                    <a href="/Admin/NoteDetailDelete/@item2.Id" class="btn btn-danger" style="float: right;"><i class="fas fa-trash"></i></a>
+                                    <a href="/Admin/NoteDetailEdit/@item2.Id" class="btn btn-primary" style="float: right; margin-right: 5px;"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div id="collapse@(item.Id)" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    @item2.Detail (@item2.History.Value.ToString("dd.MM.yyyy HH:mm"))
+                                    <a href="/Admin/NoteDetailDelete/@item2.Id" class="btn btn-danger" style="float: right;"><i class="fas fa-trash"></i></a>
+                                    <a href="/Admin/NoteDetailEdit/@item2.Id" class="btn btn-primary" style="float: right; margin-right: 5px;"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    if (i == 1)
+                    {
+                        using (Html.BeginForm("NoteDetails", "Admin", FormMethod.Post))
+                        {
+                            <div id="collapse@(item.Id)" class="collapse show" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="txtAra" id="txtAra" placeholder="Not Detay Ekleyiniz">
+                                        <input type="hidden" class="form-control" name="key" id="key" value="@item.Id">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" name="btnAra" id="btnAra" value="Ara" class="btn btn-primary">Detay Ekle</button>
+                                        <a href="/Admin/NoteDelete/@item.Id" class="btn btn-danger">Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        using (Html.BeginForm("NoteDetails", "Admin", FormMethod.Post))
+                        {
+                            <div id="collapse@(item.Id)" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="txtAra" id="txtAra" placeholder="Not Detay Ekleyiniz">
+                                        <input type="hidden" class="form-control" name="key" id="key" value="@item.Id">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" name="btnAra" id="btnAra" value="Ara" class="btn btn-primary">Detay Ekle</button>
+                                        <a href="/Admin/NoteDelete/@item.Id" class="btn btn-danger">Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("NoteDetails", "Admin", FormMethod.Post))
+                    {
+                        <div id="collapse@(item.Id)" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="txtAra" id="txtAra" placeholder="Not Detay Ekleyiniz">
+                                    <input type="hidden" class="form-control" name="key" id="key" value="@item.Id">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" name="btnAra" id="btnAra" value="Ara" class="btn btn-primary">Detay Ekle</button>
+                                    <a href="/Admin/NoteDelete/@item.Id" class="btn btn-danger">Sil</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        }
+    }
+    else
+    {
+        <div class="card card-primary card-outline">
+            <a class="d-block w-100" data-toggle="collapse" href="#not1">
+                <div class="card-header">
+                    <h4 class="card-title w-100">
+                        Not Bulunmamaktadır
+                    </h4>
+                </div>
+            </a>
+            <div id="not1" class="collapse show" data-parent="#accordion">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+    }
+
+    <br />
+
+    @using (Html.BeginForm("NoteAdd", "Admin", FormMethod.Post))
+    {
+        <h4>Not Ekle</h4>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Note.Message, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Not Ekle</button>
+        </div>
+    }
+</div>
+

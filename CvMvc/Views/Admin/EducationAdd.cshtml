@@ -1,0 +1,48 @@
+﻿@model CvMvc.Models.EntityFramework.Education
+
+@{
+    ViewBag.Title = "Eğitim Ekle";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("EducationAdd", "Admin", FormMethod.Post))
+{
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Eğitim Durum Ekle</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            @Html.Label("Okul Tipi")
+            @Html.TextBoxFor(x => x.Type, new { @class = "form-control" })
+        </div>
+        <div class="card-body">
+            @Html.Label("Okul Adı")
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+        <div class="card-body">
+            @Html.Label("Okul Bölümü")
+            @Html.TextBoxFor(x => x.Detail, new { @class = "form-control" })
+        </div>
+        <div class="card-body">
+            @Html.Label("Detay")
+            @Html.TextAreaFor(x => x.Explanation, 3, 1, new { @class = "form-control" })
+        </div>
+        <div class="card-body">
+            @Html.Label("Başlangıç ve Bitiş Tarihi")
+            @Html.TextBoxFor(x => x.History, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Eğitim Durumu Ekle</button>
+}
+
+

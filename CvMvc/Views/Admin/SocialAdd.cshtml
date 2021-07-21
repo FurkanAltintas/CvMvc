@@ -1,0 +1,44 @@
+﻿@model CvMvc.Models.EntityFramework.Social
+
+@{
+    ViewBag.Title = "Sosyal Medya Ekle";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("SocialAdd", "Admin", FormMethod.Post))
+{
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Sosyal Medya Hesabı Ekle</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            @Html.Label("Sosyal Medya Adı")
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+        <div class="card-body">
+            @Html.Label("Url")
+            @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+        </div>
+        <div class="card-body">
+            @Html.Label("Icon")
+            @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+        </div>
+        <div class="card-body">
+            @Html.Label("Renk")
+            @Html.TextBoxFor(x => x.Color, new { @class = "form-control", @type = "color" })
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Sosyal Medya Ekle</button>
+}
+
+

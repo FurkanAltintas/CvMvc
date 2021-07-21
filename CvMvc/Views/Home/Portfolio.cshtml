@@ -1,0 +1,154 @@
+﻿@using CvMvc.Models.EntityFramework
+@model List<Portfolio>
+
+@{
+    int i = 1;
+    int z = 1;
+    int y = 1;
+}
+
+<div class="section" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+                <div class="h4 text-center mb-4 title">Projelerim</div>
+                <div class="nav-align-center">
+                    <ul class="nav nav-pills nav-pills-primary" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-project" role="tablist"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#desktop-project" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#photography" role="tablist"><i class="fa fa-camera" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content gallery mt-5">
+            <div class="tab-pane active" id="web-project">
+                <div class="ml-auto mr-auto">
+                    <div class="row">
+                        @foreach (var item in Model.Where(x => x.PortfolioCategoryId == 1))
+                        {
+                            i++;
+                            if (i % 2 == 0)
+                            {
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#web-development">
+                                            <figure class="cc-effect">
+                                                <img src="@item.Image" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">@item.Name</div>
+                                                    <p>@item.Explanation</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#web-development">
+                                            <figure class="cc-effect">
+                                                <img src="@item.Image" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">@item.Name</div>
+                                                    <p>@item.Explanation</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="desktop-project" role="tabpanel">
+                <div class="ml-auto mr-auto">
+                    <div class="row">
+                        @foreach (var item in Model.Where(x => x.PortfolioCategoryId == 2))
+                        {
+                            z++;
+                            if (z % 2 == 0)
+                            {
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#graphic-design">
+                                            <figure class="cc-effect">
+                                                <img src="@item.Image" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">@item.Name</div>
+                                                    <p>@item.Explanation</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#graphic-design">
+                                            <figure class="cc-effect">
+                                                <img src="@item.Image" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">@item.Name</div>
+                                                    <p>@item.Explanation</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="photography" role="tabpanel">
+                <div class="ml-auto mr-auto">
+                    <div class="row">
+                        @foreach (var item in Model.Where(x => x.PortfolioCategoryId == 3))
+                        {
+                            y++;
+                            if (y % 2 == 0)
+                            {
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#Photography">
+                                            <figure class="cc-effect">
+                                                <img src="@item.Image" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">@item.Name</div>
+                                                    <p>@item.Explanation</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#Photography">
+                                            <figure class="cc-effect">
+                                                <img src="@item.Image" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">@item.Name</div>
+                                                    <p>@item.Explanation</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿@model CvMvc.Models.EntityFramework.Note
+
+@Html.Action("NoteList","Admin")
+<!--/.direct-chat-messages-->
+<div class="card-footer">
+    @using (Html.BeginForm("Note", "Admin", FormMethod.Post))
+    {
+        <div class="input-group">
+            @Html.TextBoxFor(x => x.Message, new { @class = "form-control", @placeholder = "Notunu yaz..." })
+            <span class="input-group-append">
+                <button type="submit" class="btn btn-warning">Gönder</button>
+            </span>
+        </div>
+    }
+</div>

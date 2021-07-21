@@ -1,0 +1,28 @@
+﻿@model CvMvc.Models.EntityFramework.Skill
+
+@{
+    ViewBag.Title = "Yetenek";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-body p-0">
+        @using (Html.BeginForm("Skill", "Admin", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Yeteneğin Adı" })
+            </div>
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.Point, new { @class = "form-control", @placeholder = "Yeteneğin Derecesi", @type = "number" })
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Ekle</button>
+            </div>
+        }
+    </div>
+    
+    <br />
+
+    @Html.Action("SkillList", "Admin")
+
+</div>

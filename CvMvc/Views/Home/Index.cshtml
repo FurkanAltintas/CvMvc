@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-content">
+    <div>
+        @Html.Action("Profile", "Home")
+        @Html.Action("About", "Home")
+        @Html.Action("Skill", "Home")
+        @Html.Action("Portfolio", "Home")
+        @Html.Action("Experience", "Home")
+        @Html.Action("Education", "Home")
+        @Html.Action("Reference", "Home")
+        @Html.Action("Contact", "Home")
+    </div>
+</div>
+
+@Html.Action("Footer", "Home")

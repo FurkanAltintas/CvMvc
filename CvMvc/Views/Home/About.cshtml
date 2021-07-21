@@ -1,0 +1,43 @@
+﻿@model CvMvc.Models.AboutInformation
+
+<div class="section" id="about">
+    <div class="container">
+        <div class="card" data-aos="fade-up" data-aos-offset="10">
+            <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card-body">
+                            <div class="h4 mt-0 title">Hakkımda</div>
+                            <p>@Model.About.Hood</p>
+                            <p>@Model.About.Explanation</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card-body">
+                            <div class="h4 mt-0 title">Temel Bilgiler</div>
+                            <div class="row">
+                                <div class="col-sm-4"><strong class="text-uppercase">Yaş:</strong></div>
+                                <div class="col-sm-8">@Model.Me.Age</div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+                                <div class="col-sm-8">@Model.Me.Email</div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-4"><strong class="text-uppercase">Telefon:</strong></div>
+                                <div class="col-sm-8">@Model.Me.Phone</div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-4"><strong class="text-uppercase">Adres:</strong></div>
+                                <div class="col-sm-8">@Model.Me.Address</div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-4"><strong class="text-uppercase">Dil:</strong></div>
+                                <div class="col-sm-8">@Model.Me.Language</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

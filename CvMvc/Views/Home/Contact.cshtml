@@ -1,0 +1,73 @@
+﻿@model CvMvc.Models.ContactInformation
+
+<div class="section" id="contact">
+    <div class="cc-contact-information" style="background-image: url('/Content/creative-cv_free_1-1-0/images/staticmap.png')">
+        <div class="container">
+            <div class="cc-contact">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card mb-0" data-aos="zoom-in">
+                            <div class="h4 text-center title">Bana Ulaşın</div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <div class="p pb-3"><strong>Benimle iletişime geçmekten çekinmeyin </strong></div>
+                                        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                                        {
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                                        @Html.TextBoxFor(x => x.contact.FullName, new { @class = "form-control", @placeholder = "Ad Soyad", @required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
+                                                        @Html.TextBoxFor(x => x.contact.Subject, new { @class = "form-control", @placeholder = "Konu", @required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                                        @Html.TextBoxFor(x => x.contact.Email, new { @class = "form-control", @placeholder = "Email", @required = "required", @type = "email" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        @Html.TextAreaFor(x => x.contact.Message, new { @class = "form-control", @placeholder = "Mesajın", @required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button class="btn btn-primary" type="submit">Gönder</button>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Adres </strong></p>
+                                        <p class="pb-2">@Model.me.Address</p>
+                                        <p class="mb-0"><strong>Telefon</strong></p>
+                                        <p class="pb-2">@Model.me.Phone</p>
+                                        <p class="mb-0"><strong>Email</strong></p>
+                                        <p>@Model.me.Email</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

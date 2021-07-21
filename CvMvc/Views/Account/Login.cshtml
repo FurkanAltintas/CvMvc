@@ -1,0 +1,41 @@
+﻿@model CvMvc.Models.EntityFramework.Admin
+
+@{
+    ViewBag.Title = "Giriş Yap";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div class="input-group mb-3">
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Kullanıcı Adı" })
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-user"></span>
+            </div>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Şifre" })
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">
+                    Beni Hatırla
+                </label>
+            </div>
+        </div>
+        <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+        </div>
+    </div>
+}
+
+

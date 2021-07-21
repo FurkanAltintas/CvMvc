@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creative CV - @ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/creative-cv_free_1-1-0/css/aos.css?ver=1.1.0" rel="stylesheet">
+    <link href="~/Content/creative-cv_free_1-1-0/css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
+    <link href="~/Content/creative-cv_free_1-1-0/css/main.css?ver=1.1.0" rel="stylesheet">
+    <noscript>
+        <style type="text/css">
+            [data-aos] {
+                opacity: 1 !important;
+                transform: translate(0) scale(1) !important;
+            }
+        </style>
+    </noscript>
+</head>
+<body id="top">
+    <header>
+        <div class="profile-page sidebar-collapse">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
+                <div class="container">
+                    <div class="navbar-translate">
+                        <a class="navbar-brand" href="/Home/Index" rel="tooltip">CV Web Site</a>
+                        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
+                    </div>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">Hakkımda</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Yeteneklerim</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Çalışmalarım</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Deneyimlerim</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Eğitimlerim</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#reference">Referanslarım</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">İletişim</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="@Url.Action("Login","Account")">Giriş Yap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <script src="~/Content/creative-cv_free_1-1-0/js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
+    <script src="~/Content/creative-cv_free_1-1-0/js/core/popper.min.js?ver=1.1.0"></script>
+    <script src="~/Content/creative-cv_free_1-1-0/js/core/bootstrap.min.js?ver=1.1.0"></script>
+    <script src="~/Content/creative-cv_free_1-1-0/js/now-ui-kit.js?ver=1.1.0"></script>
+    <script src="~/Content/creative-cv_free_1-1-0/js/aos.js?ver=1.1.0"></script>
+    <script src="~/Content/creative-cv_free_1-1-0/scripts/main.js?ver=1.1.0"></script>
+</body>
+</html>

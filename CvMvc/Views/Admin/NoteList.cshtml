@@ -1,0 +1,34 @@
+﻿@using CvMvc.Models.EntityFramework
+@model List<Note>
+
+<div class="direct-chat-messages">
+    <!-- Message. Default to the left -->
+    @if (Model.Count() != 0)
+    {
+        foreach (var item in Model)
+        {
+            <div class="direct-chat-msg">
+                <div class="direct-chat-infos clearfix">
+                    <span class="direct-chat-timestamp float-right">@item.History.Value.ToString("dd/MM/yyyy HH:mm")</span>
+                </div>
+                <div class="direct-chat-text" style="margin: 0px; position: inherit;">
+                    @item.Message
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="direct-chat-msg">
+            <div class="direct-chat-infos clearfix">
+                <span class="direct-chat-timestamp float-right"></span>
+            </div>
+            <div class="direct-chat-text">
+                Not bulunmamaktadır
+            </div>
+        </div>
+
+    }
+    <!-- /.direct-chat-msg -->
+</div>
+

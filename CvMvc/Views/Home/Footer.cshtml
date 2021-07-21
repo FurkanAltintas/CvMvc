@@ -1,0 +1,15 @@
+﻿@using CvMvc.Models.EntityFramework
+@model List<Social>
+
+<footer class="footer">
+    <div class="container text-center">
+        @foreach (var item in Model)
+        {
+            <a class="cc-@item.Name.ToLower() btn btn-link" href="@item.Link" target="_blank"><i class="@item.Icon fa-2x " aria-hidden="true"></i></a>
+        }
+    </div>
+    <div class="h4 title text-center">@ViewBag.me</div>
+    <div class="text-center text-muted">
+        <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
+    </div>
+</footer>

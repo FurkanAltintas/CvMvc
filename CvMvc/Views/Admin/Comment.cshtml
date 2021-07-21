@@ -1,0 +1,65 @@
+﻿@using CvMvc.Models.EntityFramework
+@model List<Contact>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card direct-chat direct-chat-warning">
+                    <div class="card-header">
+                        <h3 class="card-title">Not Tutma / Günlük Mesajlar</h3>
+
+                        <div class="card-tools">
+                            <span title="3 New Messages" class="badge badge-warning">@Model.Count()</span>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                                <i class="fas fa-comments"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <!-- Conversations are loaded here -->
+                        @Html.Action("NoteAdd","Admin")
+                        <!-- Contacts are loaded here -->
+                        <div class="direct-chat-contacts">
+                            <ul class="contacts-list">
+                                @if (Model.Count() != 0)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="~/Images/References/questionMark.jpg" alt="User Avatar">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        @item.FullName
+                                                        <small class="contacts-list-date float-right">@item.History.Value.ToString("dd/MM/yyyy")</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">@item.Message</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <div style="margin-left: 15px;">
+                                        <span class="contacts-list-msg">Bugün hiç mesaj gelmedi</span>
+                                    </div>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
